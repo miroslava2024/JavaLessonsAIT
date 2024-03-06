@@ -3,74 +3,66 @@ package lesson14;
 import java.util.Scanner;
 
 public class HomewoorkArray {
-    public static void main(String[] args) {
+    private static String[] hobby = {"рисование", "программирование", "Спорт",
+            "Рыбалка", "Вязание"};
 
+    public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Введите номер: 1-Рисование, 2-Програмирование, 3-Спорт, 4-Рыбалка, 5-Вязание");
+        listHobby();
 
-        String num = String.valueOf(scanner.nextInt());
-        int number = scanner.nextInt();
-        if(number == 1) {
-            System.out.println("Рисование");
-        }
-        if(number == 2){
-            System.out.println("Програмирование");
+        boolean foundHobby = findHobby("Чтение");
+        if (foundHobby) {
+            System.out.println("Хобби найдено");
+        } else {
+            System.out.println("Хобби не найдено");
         }
 
-        if(number == 3){
-            System.out.println("Спорт");
+        System.out.println("Введите индекс хобби");
+        while (!scanner.hasNextInt()) {
+            System.out.println("Ошибка, введите число");
+            scanner.next();
         }
+        int hobbyIndex = scanner.nextInt();
+        indexHobby(hobbyIndex);
 
-        if(number == 4){
-            System.out.println("Рыбалка");
-        }
-
-        if(number == 5){
-            System.out.println("Вязание");
-        }
-        else {
-            System.out.println("Такого хобби нет в базе");
-        }
-
-
-        String[] hobby = new String [5];
-
-        hobby[0] = "Рисование";
-        hobby[1] = "Програмирование" ;
-        hobby[2] = "Спорт";
-        hobby[3] = "Рыбалка";
-        hobby[4] = "Вязание";
-        String  listHobby = hobby[0];
-        String sumListHobby = String.valueOf(hobby.length);
-
-        for(int i = 0; i < hobby.length; i++) {
-            System.out.println(hobby [i]);
-
-            if(i < 0 || i> 5 );
-            System.out.println("");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        }
 
     }
+
+    //Вывеctи все хобби на экран.
+    public static void listHobby() {
+        for (int i = 0; i < hobby.length; i++) {
+            System.out.println(hobby[i]);
+        }
+    }
+
+    //ищет в массиве заданное хобби
+    public static boolean findHobby(String hobbyToFind) {
+        boolean found = false;
+        for (int i = 0; i < hobby.length; i++) {
+            if (hobby.equals(hobbyToFind)) {
+                found = true;
+            }
+        }
+        return found;
+    }
+
+    //поиск через номер своего любимого хоббu
+    public static void indexHobby(int number) {
+        if (number < 0 || number >= hobby.length) {
+            System.out.println("ERROR");
+        } else {
+            System.out.println(hobby);
+        }
+    }
+
 }
+
+
+
+
+
+
+
+
+
