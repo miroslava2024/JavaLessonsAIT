@@ -4,12 +4,13 @@ import static java.lang.System.*;
 
 public class JavaArrays {
     public static void main(String[] args) {
-        //tip dannix [] imya massiva
-        // sozdali massiv zen tipa double razmer 5
+
+        //тип_данных[] имя_массива
+        //создали массив цен типа double размер 5
+
         double[] prices = new double[5];
 
-        //cozdali massiv vozrastacotrudnikov
-        // i zapolnili ego znazeniya
+        //создали массив возрастов сотрудников и заполнили его значениями
         int []age = {20,34,19,50,44};
 
         prices[0]=20.5;
@@ -18,16 +19,16 @@ public class JavaArrays {
         prices[3]= 4.0;
         prices[4]= 50;
 
-        // vivodim na ikran pervii element massiva
+        //выводим на экран первый элемент массива
        out.println(prices[0]);
         double secondElement = prices[1];
         out.println(secondElement);
 
-        // poluzaem rasmer massiva
+        //получаем размер массива
         int length = prices.length;
         out.println(length);
 
-// vivod vsex elementov massiva na ikran
+        //вывод всех элементов массива на экран
         for(int i = 0; i < prices.length; i++){
             out.println(prices[i]);
         }
@@ -37,22 +38,28 @@ public class JavaArrays {
         }
 
         double []newPrices = new double[prices.length];
-        // kopiruem dannie iz prisec v newPrices
-        // cerez arraycopy(massiv okuda kopiruem, startovii indeks,
-        // v kakou massiv kopiruem,startovii indeks, kolizestvo elementov
+        //копируем данные из prices в newPrices
+        //System.arraycopy(массив откуда копируем, стартовый индекс для копирования,
+        // в какой массив копируем, стартовый индекс для копирования в массиве куда копируем,
+        // количество элементов);
+
         System.arraycopy(prices,0,newPrices,0, prices.length);
 
         out.println("----newPrices-----");
         for(double newprices:newPrices){
             out.println(newprices);
         }
-//klonirovanie massiva
+        //клонирование массива
         double[]clonePrices = prices.clone();
         out.println("---ckolnePrices----");
         for(double cloneprices: clonePrices){
             out.println(cloneprices);
         }
-// vizislit crednee reiting 5 filmov
+ /*
+        Представьте, что у вас есть массив `ratings`, содержащий рейтинги нескольких фильмов от 1 до 5.
+         Напишите программу на Java, которая вычислит средний рейтинг всех фильмов в массиве.
+         */
+
         out.println("---srednii reiting---");
         int []ratings = new int[5];
         ratings[0]= 2;
